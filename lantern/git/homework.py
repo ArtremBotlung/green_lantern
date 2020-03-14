@@ -48,10 +48,10 @@ def multiple_ints(first_value: int, second_value: int) -> int:
     Returns:
         Product of elements
     """
-    try:
-        if type(first_value) == int and type(second_value) == int:
-            return first_value * second_value
-    except Exception:
+
+    if type(first_value) == int and type(second_value) == int:
+        return first_value * second_value
+    else:
         raise TypeError
 
 
