@@ -257,62 +257,62 @@ class Door:
 
 
 class House:
-    """
-    !!!! DON'T WRITE NEW METHODS TO THIS CLASS EXCEPT FOR THOSE LISTED BELOW !!!
-
-    * Add super private variable __walls and its value will be empty list
-    * Add super private variable __windows and its value will be empty list
-    * Add super private variable __roof and its value will be None
-    * Add super private variable __door and its value will be None
-
-    * Implement method create_wall which will create new wall using class Wall and add it to the __walls list
-      it receives parameters width and height
-      if width or height eq 0 raise ValueError "Value must be not 0"
-      if user have more than 4 walls raise ValueError "Our house can not have more than 4 walls"
-
-    * Implement method create_roof which will create new roof using class Roof and assign it to the __roof variable
-      it receives parameters width, height and roof_type
-      if width or height eq 0 raise ValueError "Value must be not 0"
-      Check that we won't have another roof if we already have another one,
-              otherwise raise ValueError "The house can not have two roofs"
-
-    * Implement method create_window which will create new window using class Window and add it to the __windows list
-      it receives parameters width and height
-      if width or height eq 0 raise ValueError "Value must be not 0"
-
-    * Implement method create_door which will create new door using class Door and assign it to the __door variable
-      it receives parameters width and height
-      if width or height eq 0 raise ValueError "Value must be not 0"
-      Check that we won't have another door if we already have another one,
-              otherwise raise ValueError "The house can not have two doors"
-
-    * Implement method get_count_of_walls that returns count of walls
-
-    * Implement method get_count_of_windows that returns count of windows
-
-    * Implement method get_door_price that receives material value and returns price of the door
-
-    * Implement method update_wood_price that receives new_wood_price and updates old one
-
-    * Implement method update_metal_price that receives new_metal_price and updates old one
-
-    * Implement method get_roof_square that returns the roof square
-
-    * Implement method get_walls_square that returns sum of all walls square that we have
-
-    * Implement method get_windows_square that returns sum of all windows square that we have
-
-    * Implement method get_door_square that returns the square of the door
-
-    * Implement method get_number_of_rolls_of_wallpapers that returns sum of the number of rolls of wallpapers
-      needed for all our walls
-      it receives roll_width_m, roll_length_m parameters
-      Check if roll_width_m or roll_length_m eq 0 raise ValueError "Sorry length must be not 0"
-
-    * Implement method get_room_square that returns the square of our room
-      (from walls_square divide windows and door square)
-
-    """
+    # """
+    # !!!! DON'T WRITE NEW METHODS TO THIS CLASS EXCEPT FOR THOSE LISTED BELOW !!!
+    #
+    # * Add super private variable __walls and its value will be empty list
+    # * Add super private variable __windows and its value will be empty list
+    # * Add super private variable __roof and its value will be None
+    # * Add super private variable __door and its value will be None
+    #
+    # * Implement method create_wall which will create new wall using class Wall and add it to the __walls list
+    #   it receives parameters width and height
+    #   if width or height eq 0 raise ValueError "Value must be not 0"
+    #   if user have more than 4 walls raise ValueError "Our house can not have more than 4 walls"
+    #
+    # * Implement method create_roof which will create new roof using class Roof and assign it to the __roof variable
+    #   it receives parameters width, height and roof_type
+    #   if width or height eq 0 raise ValueError "Value must be not 0"
+    #   Check that we won't have another roof if we already have another one,
+    #           otherwise raise ValueError "The house can not have two roofs"
+    #
+    # * Implement method create_window which will create new window using class Window and add it to the __windows list
+    #   it receives parameters width and height
+    #   if width or height eq 0 raise ValueError "Value must be not 0"
+    #
+    # * Implement method create_door which will create new door using class Door and assign it to the __door variable
+    #   it receives parameters width and height
+    #   if width or height eq 0 raise ValueError "Value must be not 0"
+    #   Check that we won't have another door if we already have another one,
+    #           otherwise raise ValueError "The house can not have two doors"
+    #
+    # * Implement method get_count_of_walls that returns count of walls
+    #
+    # * Implement method get_count_of_windows that returns count of windows
+    #
+    # * Implement method get_door_price that receives material value and returns price of the door
+    #
+    # * Implement method update_wood_price that receives new_wood_price and updates old one
+    #
+    # * Implement method update_metal_price that receives new_metal_price and updates old one
+    #
+    # * Implement method get_roof_square that returns the roof square
+    #
+    # * Implement method get_walls_square that returns sum of all walls square that we have
+    #
+    # * Implement method get_windows_square that returns sum of all windows square that we have
+    #
+    # * Implement method get_door_square that returns the square of the door
+    #
+    # * Implement method get_number_of_rolls_of_wallpapers that returns sum of the number of rolls of wallpapers
+    #   needed for all our walls
+    #   it receives roll_width_m, roll_length_m parameters
+    #   Check if roll_width_m or roll_length_m eq 0 raise ValueError "Sorry length must be not 0"
+    #
+    # * Implement method get_room_square that returns the square of our room
+    #   (from walls_square divide windows and door square)
+    #
+    # """
 
     def __init__(self):
         self.__walls = []
