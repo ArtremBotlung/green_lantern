@@ -37,11 +37,12 @@ class Cat:
     * Implement get_average_speed and return average_speed
 
     """
-    saturation_level = 50
+
 
     def __init__(self, age):
         self.age = age
-        self.averege_speed = self._set_average_speed()
+        self.average_speed = self._set_average_speed()
+        self.saturation_level = 50
 
     def eat(self, product):
         if product == "fodder":
@@ -66,24 +67,24 @@ class Cat:
             return 6
 
     def run(self, hours):
-        km_run = self.averege_speed * hours
+        km_run = self.average_speed * hours
         if km_run <= 25:
-            self._reduce_saturation_level(2)
-        elif 25 < km_run <= 50:
-            self._reduce_saturation_level(5)
-        elif 50 < km_run <= 100:
-            self._reduce_saturation_level(15)
-        elif 100 < km_run <= 200:
-            self._reduce_saturation_level(25)
+            self.saturation_level = self._reduce_saturation_level(2)
+        elif km_run in range(26, 51):
+            self.saturation_level = self._reduce_saturation_level(5)
+        elif km_run in range(51, 101):
+            self.saturation_level = self._reduce_saturation_level(15)
+        elif km_run in range(101, 201):
+            self.saturation_level = self._reduce_saturation_level(25)
         elif km_run > 200:
-            self._reduce_saturation_level(50)
-        return "Your cat run {km_run}kilometers"
+            self.saturation_level = self._reduce_saturation_level(50)
+        return 'Your cat run {km_run} kilometers'
 
     def get_saturation_level(self):
         return "Your cat is dead :(" if self.saturation_level == 0 else self.saturation_level
 
     def get_average_speed(self):
-        return self.averege_speed
+        return self.average_speed
 
 
 class Cheetah(Cat):
@@ -147,6 +148,7 @@ class Wall:
         return count_lines / count_lines_in_roll
 
 class Roof:
+
     """
         * Implement class Roof which receives such parameters: width, height and roof_type
 
