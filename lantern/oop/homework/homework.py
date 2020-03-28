@@ -87,7 +87,7 @@ class Cat:
         return 'Your cat run {run_km} kilometers'
 
     def get_saturation_level(self):
-        return "Your cat is dead :(" if self.saturation_level <= 0 else self.saturation_level
+        return "Your cat is died :(" if self.saturation_level <= 0 else self.saturation_level
 
     def get_average_speed(self):
         return self.average_speed
@@ -217,25 +217,25 @@ class Door:
     def __init__(self, width, height):
         self.width = width
         self.height = height
-        self.wood_price = 10
-        self.metal_price = 3
+        self._wood_price = 10
+        self._metal_price = 3
 
     def door_square(self):
         return self.height * self.width
 
     def door_price(self, material):
         if material == "wood":
-            return self.door_square() * self.wood_price
+            return self.door_square() * self._wood_price
         elif material == "metal":
-            return self.door_square() * self.metal_price
+            return self.door_square() * self._metal_price
         else:
-            raise ValueError("Sorry we don\'t such material")
+            raise ValueError("Sorry we don't have such material")
 
     def update_wood_price(self, new_price):
-        self.wood_price = new_price
+        self._wood_price = new_price
 
     def update_metal_price(self, new_price):
-        self.metal_price = new_price
+        self._metal_price = new_price
 
 
 class House:
@@ -329,7 +329,7 @@ class House:
         if width == 0 or height == 0:
             raise ValueError("Value must be not 0")
         if self.__door is not None:
-            raise ValueError("The house can not two doors")
+            raise ValueError("The house can not have two doors")
         self.__door = door
 
     def get_count_of_walls(self):
