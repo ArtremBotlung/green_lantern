@@ -1,3 +1,4 @@
+
 class Cat:
     """
     Write Class Cat which will receive age from user
@@ -38,7 +39,6 @@ class Cat:
 
     """
 
-
     def __init__(self, age):
         self.age = age
         self.average_speed = self._set_average_speed()
@@ -53,10 +53,16 @@ class Cat:
             self.saturation_level = self._increase_saturation_level(2)
 
     def _reduce_saturation_level(self, value):
-        return 0 if self.saturation_level - value <= 0 else self.saturation_level - value
+        if (self.saturation_level - value) <= 0:
+            return 0
+        else:
+            return self.saturation_level - value
 
     def _increase_saturation_level(self, value):
-        return 100 if self.saturation_level + value >= 100 else self.saturation_level + value
+        if (self.saturation_level + value) >= 100:
+            return 100
+        else:
+            return self.saturation_level + value
 
     def _set_average_speed(self):
         if self.age <= 7:
@@ -67,21 +73,21 @@ class Cat:
             return 6
 
     def run(self, hours):
-        km_run = self.average_speed * hours
-        if km_run <= 25:
+        run_km = self.average_speed * hours
+        if run_km <= 25:
             self.saturation_level = self._reduce_saturation_level(2)
-        elif km_run in range(26, 51):
+        elif run_km in range(26, 51):
             self.saturation_level = self._reduce_saturation_level(5)
-        elif km_run in range(51, 101):
+        elif run_km in range(51, 101):
             self.saturation_level = self._reduce_saturation_level(15)
-        elif km_run in range(101, 201):
+        elif run_km in range(101, 201):
             self.saturation_level = self._reduce_saturation_level(25)
-        elif km_run > 200:
+        elif run_km > 200:
             self.saturation_level = self._reduce_saturation_level(50)
-        return 'Your cat run {km_run} kilometers'
+        return 'Your cat run {run_km} kilometers'
 
     def get_saturation_level(self):
-        return "Your cat is dead :(" if self.saturation_level == 0 else self.saturation_level
+        return "Your cat is dead :(" if self.saturation_level <= 0 else self.saturation_level
 
     def get_average_speed(self):
         return self.average_speed
@@ -96,9 +102,9 @@ class Cheetah(Cat):
             self.saturation_level = self._increase_saturation_level(15)
 
     def _set_average_speed(self):
-        if self.age >= 5:
+        if self.age <= 5:
             return 90
-        elif 5 > self.age <= 15:
+        elif self.age in range(6, 16):
             return 75
         elif self.age > 15:
             return 40
@@ -114,12 +120,10 @@ class Cheetah(Cat):
       if age less or eq 5 return 90
       if age between 5 and 15(including) return 75
       if age grosser 15(not including) return 40
-
     """
 
 
 class Wall:
-
 
     """
     * Implement class Wall which receives such parameters: width and height
@@ -146,6 +150,7 @@ class Wall:
         count_lines_in_roll = roll_length_m / self.height
         count_lines = self.width // roll_width_m
         return count_lines / count_lines_in_roll
+
 
 class Roof:
 
@@ -212,9 +217,8 @@ class Door:
     def __init__(self, width, height):
         self.width = width
         self.height = height
-
-    wood_price = 10
-    metal_price = 3
+        self.wood_price = 10
+        self.metal_price = 3
 
     def door_square(self):
         return self.height * self.width
@@ -225,7 +229,7 @@ class Door:
         elif material == "metal":
             return self.door_square() * self.metal_price
         else:
-            raise ValueError("Sorry we don't such material")
+            raise ValueError("Sorry we don\'t such material")
 
     def update_wood_price(self, new_price):
         self.wood_price = new_price
@@ -324,7 +328,7 @@ class House:
         door = Door(width, height)
         if width == 0 or height == 0:
             raise ValueError("Value must be not 0")
-        elif self.__door is not None:
+        if self.__door is not None:
             raise ValueError("The house can not two doors")
         self.__door = door
 
@@ -341,7 +345,7 @@ class House:
         self.__door._wood_price = new_wood_price
 
     def update_metal_price(self, new_metal_price):
-         self.__door._metal_price = new_metal_price
+        self.__door._metal_price = new_metal_price
 
     def get_roof_square(self):
         return self.__roof.roof_square()
@@ -353,10 +357,10 @@ class House:
         return summa_all_walls
 
     def get_windows_square(self):
-        summa_all_windows = 0
-        for windows in self.__windows:
-            summa_all_windows += windows.windows_square()
-        return summa_all_windows
+        sum_all_windows = 0
+        for window in self.__windows:
+            sum_all_windows += window.window_square()
+        return sum_all_windows
 
     def get_door_square(self):
         return self.__door.door_square()
