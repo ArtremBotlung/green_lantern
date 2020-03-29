@@ -53,13 +53,13 @@ class Cat:
             self.saturation_level = self._increase_saturation_level(2)
 
     def _reduce_saturation_level(self, value):
-        if (self.saturation_level - value) <= 0:
+        if self.saturation_level - value <= 0:
             return 0
         else:
             return self.saturation_level - value
 
     def _increase_saturation_level(self, value):
-        if (self.saturation_level + value) >= 100:
+        if self.saturation_level + value >= 100:
             return 100
         else:
             return self.saturation_level + value
@@ -84,7 +84,7 @@ class Cat:
             self.saturation_level = self._reduce_saturation_level(25)
         elif run_km > 200:
             self.saturation_level = self._reduce_saturation_level(50)
-        return 'Your cat run {run_km} kilometers'
+        return f'Your cat run {run_km} kilometers'
 
     def get_saturation_level(self):
         return "Your cat is died :(" if self.saturation_level <= 0 else self.saturation_level

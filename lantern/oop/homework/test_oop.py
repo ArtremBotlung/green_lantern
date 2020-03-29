@@ -1,5 +1,4 @@
 import pytest
-
 from homework import Cat, Cheetah, House
 
 
