@@ -51,7 +51,6 @@ class Robot:
         if self.x > self.asteroid.x or self.y > self.asteroid.y:
             raise RobotFallsError()
 
-
     def move_backward(self):
         if self.direction == 'N':
             self.x -= 1
@@ -63,7 +62,6 @@ class Robot:
             self.y += 1
         if self.x > self.asteroid or self.y > self.asteroid.y:
             raise RobotFallsError()
-
 
 
 class MissAsteroidError(Exception):

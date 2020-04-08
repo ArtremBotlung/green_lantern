@@ -80,7 +80,6 @@ class TestRobotMovement:
         assert robot.x == move_x
         assert robot.y == move_y
 
-
     @pytest.mark.parametrize(
         "direction,move_x,move_y",
         (
@@ -90,8 +89,6 @@ class TestRobotMovement:
                 ('W', 10, 16)
         )
     )
-
-
     def test_move_backward(self, direction, move_x, move_y):
         robot = Robot(self.x, self.y, self.asteroid, direction)
         robot.move_backward()
