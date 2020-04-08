@@ -24,7 +24,7 @@ class Robot:
             'N': 'W',
             'W': 'S',
             'S': 'E',
-            'E': 'W',
+            'E': 'N',
 
         }
         self.direction = left_turns[self.direction]
@@ -60,7 +60,8 @@ class Robot:
             self.x += 1
         if self.direction == 'W':
             self.y += 1
-        if self.x > self.asteroid or self.y > self.asteroid.y:
+
+        if self.x > self.asteroid.x or self.y > self.asteroid.y:
             raise RobotFallsError()
 
 

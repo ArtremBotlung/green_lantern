@@ -28,7 +28,7 @@ class TestRobotCreation:
 
 
 class TestRobotMovement:
-    def set_up(self):
+    def setup(self):
         self.x, self.y = 10, 15
         self.asteroid = Asteroid(self.x + 15, self.y + 15)
 
