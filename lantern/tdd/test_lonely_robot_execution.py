@@ -80,6 +80,7 @@ class TestRobotMovement:
         assert robot.x == move_x
         assert robot.y == move_y
 
+
     @pytest.mark.parametrize(
         "direction,move_x,move_y",
         (
